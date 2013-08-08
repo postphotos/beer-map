@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<title>Colorado Beer Map - The Denver Post</title> 
+    <link rel="stylesheet" href="./beer.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+	<div id="mapwrapper">
+ 		<div id="map"></div>
+		 <div id="maptabs">
+			<div id="title" onclick="centerFire(firecenter[0])">Colorado Beer Map</div>
+		
+			<div id="dropdowns">
+				<div id="dd2" class="wrapper-dropdown-1" tabindex="2" z-index="99">
+					<span>City/Region:</span>
+					<ul class="dropdown" tabindex="2">
+						<li><a href="#" class="east_peak unselected" onclick="centerFire(firecenter[1],this)">East Peak</a></li>
+						<li><a href="#" class="black_forest unselected" onclick="centerFire(firecenter[2],this)">Black Forest</a></li>
+						<li><a href="#" class="royal_gorge unselected" onclick="centerFire(firecenter[3],this)">Royal Gorge</a></li>
+						<li><a href="#" class="wild_rose unselected" onclick="centerFire(firecenter[4],this)">Wild Rose</a></li>
+						<li><a href="#" class="east_fork unselected" onclick="centerFire(firecenter[9],this)">East Fork</a></li>
+						<li><a href="#" class="west_fork unselected" onclick="centerFire(firecenter[7],this)">West Fork</a></li>
+						<li><a href="#" class="lime_gulch unselected" onclick="centerFire(firecenter[8],this)">Lime Gulch</a></li>
+						<li><a href="#" class="state_view unselected" onclick="centerFire(firecenter[0],this)">All of Colorado</a></li>
+					</ul>
+				</div>		
+			</div>
+		</div>
+		
+
+
+    </div>
+    
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://extras.denverpost.com/media/maps/beforeandafter/blackforesthomes/js/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
+	<script type="text/javascript" src="./beer.js"></script>
+	<script type="text/javascript">
+		drawGoogleWildfireMap();
+	</script>	
+    
+    </body>
+</html> 
