@@ -1,80 +1,95 @@
    	var map;
 
-	var firemapcenter = (typeof getUrlVars()["fire"] != 'undefined') ? getUrlVars()["fire"] : 'state_view';
+	var mapcenter = (typeof getUrlVars()["fire"] != 'undefined') ? getUrlVars()["fire"] : 'state_view';
 	
-	switch(firemapcenter) {
-		case 'east_peak':		chosenfire = 1;
+	switch(mapcenter) {
+		case 'east_peak':		chosencity = 1;
 								break;
-		case 'black_forest':	chosenfire = 2;
+		case 'black_forest':	chosencity = 2;
 								break;
-		case 'royal_gorge':		chosenfire = 3;
+		case 'royal_gorge':		chosencity = 3;
 								break;
-		case 'wild_rose':		chosenfire = 4;
+		case 'wild_rose':		chosencity = 4;
 								break;
-		case 'ward_gulch':		chosenfire = 5;
+		case 'ward_gulch':		chosencity = 5;
 								break;
-		case 'big_meadow':		chosenfire = 6;
+		case 'big_meadow':		chosencity = 6;
 								break;
-		case 'west_fork':		chosenfire = 7;
+		case 'west_fork':		chosencity = 7;
 								break;
-		case 'lime_gulch':		chosenfire = 8;
+		case 'lime_gulch':		chosencity = 8;
 								break;
-		case 'east_fork':		chosenfire = 9;
+		case 'east_fork':		chosencity = 9;
 								break;
-		case 'state_view':		chosenfire = 0;
+		case 'state_view':		chosencity = 0;
 								break;
-		default:				chosenfire = 0;
+		default:				chosencity = 0;
 								break;
 		}
 
-	var firecenter = new Array();
+	var mapcenter = new Array();
 			
 	//   [zoom level,latitude,longitude]
-	firecenter[0] = [7,39.052002,-105.457425]; //default -- state of Colorado
-	firecenter[1] = [11,37.494762,-104.851117]; //East Peak fire
-	firecenter[2] = [12,39.045069,-104.698157]; //Black Forest fire
-	firecenter[3] = [12,38.456295,-105.280434]; //Royal Gorge fire
-	firecenter[4] = [12,39.774104,-108.813224]; //Wild Rose fire
-	firecenter[5] = [13,39.663212,-107.725234]; //Ward Gulch fire
-	//firecenter[6] = [14,40.327588,-105.771214]; //Big Meadow fire
-	firecenter[7] = [10,37.599917,-106.919627]; //West Fork fire
-	firecenter[8] = [13,39.413277,-105.226369]; //Lime Gulch fire
-	firecenter[9] = [14,38.201629,-107.495732]; //East Fork fire
+	mapcenter[0] = [7,39.052002,-105.457425]; //default -- state of Colorado
+	mapcenter[1] = [15,39.750786,-104.997203]; //LoDo
+	mapcenter[2] = [12,39.045069,-104.698157]; //Black Forest fire
+	mapcenter[3] = [12,38.456295,-105.280434]; //Royal Gorge fire
+	mapcenter[4] = [12,39.774104,-108.813224]; //Wild Rose fire
+	mapcenter[5] = [13,39.663212,-107.725234]; //Ward Gulch fire
+	//mapcenter[6] = [14,40.327588,-105.771214]; //Big Meadow fire
+	mapcenter[7] = [10,37.599917,-106.919627]; //West Fork fire
+	mapcenter[8] = [13,39.413277,-105.226369]; //Lime Gulch fire
+	mapcenter[9] = [14,38.201629,-107.495732]; //East Fork fire
 
-	var layers = [];
+
+
+  
+
+			
+//		var mapZoom = null;
+	function initialize() {
+
+	var ctaLayer = new google.maps.KmlLayer({
+    url: 'http://gmaps-samples.googlecode.com/svn/trunk/ggeoxml/cta.kml'
+  });
+	ctaLayer.setMap(map);
 	
-	layers[1] = new google.maps.KmlLayer('http://extras.denverpost.com/media/maps/kml/2013/Coloradowildfireevacuations2013.kml', {preserveViewport: true});
-	layers[2] = new google.maps.KmlLayer('http://extras.denverpost.com/media/maps/kml/2013/Coloradowildfireperimeters2013.kml', {preserveViewport: true});
-	layers[3] = new google.maps.KmlLayer('http://extras.denverpost.com/media/maps/kml/2013/Coloradowildfirehomesaffected2013.kml', {preserveViewport: true});
-
-	function drawGoogleWildfireMap() {
-		
-		var mapZoom = null;
-		
 		map = new google.maps.Map(document.getElementById('map'), {
-			zoom: firecenter[chosenfire][0],
-			disableDefaultUI: true,
+			zoom: mapcenter[chosencity][0],
+			/* disableDefaultUI: true,
 			panControl: true,
 			zoomControl: true,
 			mapTypeControl: false,
 			scaleControl: true,
 			streetViewControl: false,
-			overviewMapControl: false,
-			center: new google.maps.LatLng(firecenter[chosenfire][1],firecenter[chosenfire][2]),
+			overviewMapControl: false, */
+			center: new google.maps.LatLng(mapcenter[chosencity][1],mapcenter[chosencity][2]),
 			mapTypeId: google.maps.MapTypeId.TERRAIN
 		});
 
-/* layer toggles */
-		layers[1].setMap(map);
-		layers[2].setMap(map);
-		layers[3].setMap(map);
 
-		$('a[class*=' + firemapcenter + ']').removeClass('unselected').addClass('selected');
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+/*	var beer = new google.maps.KmlLayer({url: 'http://www.leopostovoit.com/beermap/breweries.kml', preserveViewport: true });
+	
+	beer.setMap(map); */
+
+
+
+
+	
+/* layer toggles */
+	/*	layers[1].setMap(map);
+
+		$('a[class*=' + mapcenter + ']').removeClass('unselected').addClass('selected');
 
 		google.maps.event.addListener(map, 'idle', function(){ console.log(map.getZoom() + ', ' + map.getCenter()) })
 	}
 	
-	function toggleLayer(i,caller) {
+	 function toggleLayer(i,caller) {
 		if(layers[i].getMap() === null) {
 			layers[i].setMap(map);
 			$(caller).removeClass('unselected');
@@ -86,7 +101,7 @@
 			$(caller).addClass('unselected');
 			$('wrapper-dropdown-1').removeClass('active');
 		}
-	}
+	} */
  
 /* end layer toggles */
 	
@@ -99,7 +114,7 @@
 		return vars;
 	}
 
-	function centerFire(newcenter,caller) {
+	function centerMap(newcenter,caller) {
 		map.setCenter(new google.maps.LatLng(newcenter[1],newcenter[2]));
 		map.setZoom(newcenter[0]);
 		$('#dd2 > ul.dropdown > li > a').removeClass('selected').addClass('unselected');
