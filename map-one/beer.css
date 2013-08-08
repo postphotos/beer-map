@@ -111,12 +111,12 @@ em {
 }
 
 .selected:before {
-	content: "\2714";
+	content: \2714;
 	font-size: 1.1em;
 }
 
 .unselected:before {
-	content: "\2714";
+	content: \2714;
 	color: #F0C078;
 	font-size: 1.1em;
 }
@@ -150,7 +150,7 @@ em {
 }
 
 .wrapper-dropdown-1:after {
-    content: "";
+    content:"" ;
     width: 0;
     height: 0;
     position: absolute;
@@ -163,7 +163,7 @@ em {
 }
 
 #menutitle a:before {
-    content: "";
+    content:"" ;
     width: 0;
     height: 0;
     position: absolute;
@@ -228,7 +228,7 @@ em {
 
 .wrapper-dropdown-1.active:after {
     border-color: #686868 transparent;
-    border-width: 6px 6px 0 6px ;
+    border-width: 6px 6px 0 6px;
     margin-top: -3px;
 }
 
