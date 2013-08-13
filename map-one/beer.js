@@ -46,13 +46,8 @@
   
 
 			
-//		var mapZoom = null;
 	function initialize() {
 
-	var ctaLayer = new google.maps.KmlLayer({
-    url: 'http://gmaps-samples.googlecode.com/svn/trunk/ggeoxml/cta.kml'
-  });
-	ctaLayer.setMap(map);
 	
 		map = new google.maps.Map(document.getElementById('map'), {
 			zoom: mapcenter[chosencity][0],
