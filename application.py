@@ -18,6 +18,7 @@ def _get_json(document_key):
 	document = gdrive_client.open_by_key(document_key)
 	# get_all_records takes the first row of the spreadsheet and uses it
 	# as keys for a dict, which can be turned into valid json"""
+	# dope
 	data = document.sheet1.get_all_records()
 	#'dumps' is short for 'dump string'
 	return json.dumps(data)
