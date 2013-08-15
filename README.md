@@ -1,6 +1,9 @@
 beer-map
 ========
 
+
+Setting up python/virtualenv
+-------
 *Do this:* http://conjurecode.com/python-environment-for-ubuntu-part-1/ to make sure your box is all situated with Python before virtualenv install.
 
  
