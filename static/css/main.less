@@ -536,3 +536,44 @@ textarea[contenteditable] {
        only screen and (min-resolution: 144dpi) {
     /* Style adjustments for viewports that meet the condition */
 }
+
+
+/* grid */
+
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  GROUPING  */
+.section:before,
+.section:after {
+    content:"";
+    display:table;
+}
+.section:after {
+    clear:both;
+}
+
+.span1, .span2, .span3 {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 1.6%;
+}
+
+/*  GRID OF THREE  */
+.span3 {
+    width: 100%;
+}
+.span2 {
+    width: 66.1%;
+}
+.span1 {
+    width: 32.2%;
+}
+
+
+@media only screen and (max-width: 480px) {
+.span1, .span2, .span3 {width: 100%;}
+}
