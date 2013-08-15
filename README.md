@@ -4,9 +4,12 @@ beer-map
 *Do this:*
 http://conjurecode.com/python-environment-for-ubuntu-part-1/
 To make sure your box is all situated with Python before virtualenv install.
+
  
 *Then run:*
+
 pip install virtualenv
+
 pip install virtualenvwrapper
  
 cd into the working directory of beer-map and run:
@@ -16,15 +19,24 @@ cd into the working directory of beer-map and run:
  
 (beermap)beatpanda@lulu:~/dev/leo/beer-map$
 
+
 *then run:*
+
 pip install -r requirements.txt
+
 pip install gspread 
+
 This will install dependencies for the app, within virtualenv.
 
-*To start the app, run:
-python application.py
+
+To start the app, run:
+
+*python application.py*
+
 
 and go to:
-localhost:5000
+
+*localhost:5000*
+
 
 To get in to the virtualenv in the future, run *'workon beermap'*.
