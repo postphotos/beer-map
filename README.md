@@ -1,6 +1,7 @@
 beer-map
 ========
 
+#NOW MANAGED BY ERIC LUBBERS
 
 Setting up python/virtualenv
 -------
